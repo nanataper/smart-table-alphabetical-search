@@ -1,0 +1,701 @@
+<head>
+    <style>
+     
+    </style>
+    
+  
+<!-- TableFilter JavaScript Library - CSS Styles -->
+<link href="https://unpkg.com/tablefilter@0.7.2/dist/tablefilter/style/tablefilter.css" rel="stylesheet" />
+<style type="text/css">
+  .alphabet-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  table.TF th{
+    background-color: #D2E1EB;
+    border: none;
+  }
+  table.TF th:last-child{
+    border:none;
+  }
+  .alphabet-container button{
+    background-color: #D2E1EB;
+  }
+
+  .alphabet-filter:hover {
+    font-weight: bolder;
+    background-color: #D2E1EB;
+  }
+  #downloads-parent-div{
+  width: 70%;
+  margin: auto;
+  color: #00305c;
+  font-family: LindeDaxOffice;
+
+}
+#downloads-parent-div h2{
+    text-align: center;
+    font-weight: 700;
+    margin: 20px;
+}
+#downloads-parent-div p{
+    text-align: center;
+    margin: auto;
+    width: 90%;
+    margin-bottom: 20px;
+}
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #D2E1EB;
+  margin-bottom: 12px;
+  border-radius: 5px;
+}
+
+.table {
+  width: 100%;
+  border: 1px solid #D2E1EB;
+  font-size: 1.7rem;
+  border-collapse: collapse;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+.helpBtn{
+  display: none;
+}
+</style>
+
+<div id="downloads-parent-div">
+  <h2><img
+      src="https://static.prd.echannel.linde.com/wcsstore/EE_REN_Industrial_Gas_Store/images/LG_Icon_Cloud_download_CMYK_RZ.png"
+      style="width: 40px; margin-right: 8px;" />Downloads</h2>
+  <p style="font-size: 2rem;"> Here you find all our brochures, product datasheets and documents gathered in one
+    library. Please choose the product from the list or use serch box to find the specific document.</p>
+  <div id="table-input-div">
+    <div class="alphabet-container">
+      <button class="btn alphabet-filter" onclick="filter(event);" value="">All
+      </button>
+      <button class="btn alphabet-filter" onclick="filter(event);" value="A">A
+      </button>
+      <button class="btn alphabet-filter" onclick="filter(event);" value="B">B
+      </button>
+      <button class="btn alphabet-filter" onclick="filter(event);" value="C">C
+      </button>
+      <button class="btn alphabet-filter" onclick="filter(event);" value="D">D
+      </button>
+      <button class="btn alphabet-filter" onclick="filter(event);" value="E">E
+      </button>
+      <button class="btn alphabet-filter" onclick="filter(event);" value="F">F
+      </button>
+      <button class="btn alphabet-filter" onclick="filter(event);" value="G">G
+      </button>
+      <button class="btn alphabet-filter" onclick="filter(event);" value="H">H
+      </button>
+      <button class="btn alphabet-filter" onclick="filter(event);" value="I">I
+      </button>
+      <button class="btn alphabet-filter" onclick="filter(event);" value="J">J
+      </button>
+      <button class="btn alphabet-filter" onclick="filter(event);" value="K">K
+      </button>
+      <button class="btn alphabet-filter" onclick="filter(event);" value="L">L
+      </button>
+      <button class="btn alphabet-filter" onclick="filter(event);" value="M">M
+      </button>
+      <button class="btn alphabet-filter" onclick="filter(event);" value="N">N
+      </button>
+      <button class="btn alphabet-filter" onclick="filter(event);" value="O">O
+      </button>
+      <button class="btn alphabet-filter" onclick="filter(event);" value="P">P
+      </button>
+      <button class="btn alphabet-filter" onclick="filter(event);" value="Q">Q
+      </button>
+      <button class="btn alphabet-filter" onclick="filter(event);" value="R">R
+      </button>
+      <button class="btn alphabet-filter" onclick="filter(event);" value="S">S
+      </button>
+      <button class="btn alphabet-filter" onclick="filter(event);" value="T">T
+      </button>
+      <button class="btn alphabet-filter" onclick="filter(event);" value="U">U
+      </button>
+      <button class="btn alphabet-filter" onclick="filter(event);" value="V">V
+      </button>
+      <button class="btn alphabet-filter" onclick="filter(event);" value="W">W
+      </button>
+      <button class="btn alphabet-filter" onclick="filter(event);" value="X">X
+      </button>
+      <button class="btn alphabet-filter" onclick="filter(event);" value="Y">Y
+      </button>
+      <button class="btn alphabet-filter" onclick="filter(event);" value="Z">Z
+      </button>
+    </div>
+    <table class="table" id="pdf-codes">
+      <thead>
+        <tr>
+          <th style="cursor: pointer; text-align: center;" hidden>ISO
+          </th>
+          <th style="cursor: pointer;">Name
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr id="rowAC">
+          <td align="center" hidden>AC</td>
+          <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/ACCURA gas management for offshore EN.pdf" target="_blank">ACCURA gas management for offshore</a></td>
+        </tr>
+        <tr id="rowAG">
+          <td align="center" hidden>AG</td>
+          <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Acetylene brochure EN.pdf" target="_blank">Acetylene datasheet</a></td>
+        </tr>
+        <tr id="rowAL">
+          <td align="center"hidden>AL</td>
+          <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Ammonia datasheet EN.pdf" target="_blank">Ammonia datasheet</a></td>
+        </tr>
+        <tr id="rowAM">
+          <td align="center"hidden>AM</td>
+          <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Aquaculture brochure EN.pdf" target="_blank">Aquaculture brochure</a></td>
+        </tr>
+        <tr id="rowAR">
+          <td align="center"hidden>AR</td>
+          <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Argon datasheet EN.pdf"target="_blank">Argon datasheet</a></td>
+        </tr>  
+        <tr id="rowAR">
+          <td align="center"hidden>AR</td>
+          <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/AVANTO welding brochure EN.pdf" target="_blank">AVANTO welding brochure</a></td>
+        </tr>  
+        <tr id="rowCR">
+          <td align="center"hidden>CR</td>
+          <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Carbon dioxide datasheet EN.pdf" target="_blank">Carbon dioxide datasheet</a></td>
+        </tr>  <tr id="rowCR">
+          <td align="center"hidden>CR</td>
+          <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Central gas equipment for industrial gases EN.pdf" target="_blank">Central gas equipment for industrial gases</a></td>
+        </tr>  <tr id="rowCR">
+          <td align="center"hidden>CR</td>
+          <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Chlorine datasheet EN.pdf" target="_blank">Chlorine datasheet</a></td>
+        </tr>  <tr id="rowCR">
+          <td align="center"hidden>CR</td>
+          <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/CRYOLINE CF freezer datasheet EN.pdf" target="_blank">CRYOLINE CF freezer datasheet</a></td>
+        </tr>  <tr id="rowCR">
+          <td align="center"hidden>CR</td>
+          <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/CRYOLINE CS freezer datasheet EN.pdf" target="_blank">CRYOLINE CS freezer datasheet</a></td>
+        </tr>  <tr id="rowCR">
+          <td align="center"hidden>CR</td>
+          <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/CRYOLINE CW freezer datasheet EN.pdf" target="_blank">CRYOLINE CW freezer datasheet</a></td>
+        </tr>
+      <tr id="rowCR">
+        <td align="center"hidden>CR</td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/CRYOLINE CWI freezer datasheet EN.pdf" target="_blank">CRYOLINE CWI freezer datasheet</a></td>
+      </tr>
+      <tr id="rowCR">
+        <td align="center"hidden>CR</td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/CRYOLINE freezing solutions brochure EN.pdf" target="_blank">CRYOLINE freezing solutions brochure</a></td>
+      </tr>
+      <tr id="rowCY">
+        <td align="center"hidden>CY</td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/CRYOLINE SC freezer datasheet EN.pdf" target="_blank">CRYOLINE SC freezer datasheet</a></td>
+      </tr>
+      <tr id="rowDE">
+        <td align="center"hidden>DE</td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/CRYOLINE SI freezer datasheet EN.pdf" target="_blank">CRYOLINE SI freezer datasheet</a></td>
+      </tr>
+      <tr id="rowET">
+        <td align="center"hidden>ET</td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/CRYOLINE TI freezer datasheet EN.pdf" target="_blank">CRYOLINE TI freezer datasheet</a></td>
+      </tr>
+      <tr id="rowET">
+        <td align="center"hidden>ET</td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/CRYOLINE XF freezer datasheet EN.pdf" target="_blank">CRYOLINE XF freezer datasheet</a></td>
+      </tr>
+      <tr id="rowFG">
+        <td align="center"hidden>FG</td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Cutting and welding equipment catalogue EN.pdf" target="_blank">Cutting and welding equipment catalogue</a></td>
+      </tr>
+      <tr id="rowFG">
+        <td align="center"hidden>FG</td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Cylinder colors poster EN.pdf" target="_blank">Cylinder colors poster</a></td>
+      </tr>
+      <tr id="rowFL">
+        <td align="center"hidden>FL</td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Deuterium datasheet EN.pdf" target="_blank">Deuterium datasheet</a></td>
+      </tr>
+      <tr id="rowGA">
+        <td align="center"hidden>GA</td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Dry ice brochure EN.pdf" target="_blank">Dry ice brochure</a></td>
+      </tr>
+      <tr id="rowGA">
+        <td align="center"hidden>GA</td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Ethane datasheet EN.pdf" target="_blank">Ethane datasheet</a></td>
+      </tr>
+      <tr id="rowGA">
+        <td align="center"hidden>GA</td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Ethene datasheet EN.pdf" target="_blank">Ethene datasheet</a></td>
+      </tr>
+      <tr id="rowGA">
+        <td align="center"hidden>GA</td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/FERRONOVA heat treatment datasheet EN.pdf" target="_blank">FERRONOVA heat treatment datasheet</a></td>
+      </tr>
+      <tr id="rowGE">
+        <td align="center"hidden>GE</td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Fume and gases EN.pdf" target="_blank">Fume and gases</a></td>
+      </tr>
+      <tr id="rowGE">
+        <td align="center"hidden>GE</td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Gases and applications ebook EN.pdf" target="_blank">Gases and applications ebook</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Helium datasheet EN.pdf" target="_blank">Helium datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/HFC refrigerants Cap and phase down brochure EN.pdf" target="_blank">HFC refrigerants Cap and phase down brochure</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Hydrogen chloride datasheet EN.pdf" target="_blank">Hydrogen chloride datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Hydrogen datasheet EN.pdf" target="_blank">Hydrogen datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Hydrogen sulphide datasheet EN.pdf" target="_blank">Hydrogen sulphide datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/ISO9001 quality certificate EN.pdf" target="_blank">ISO9001 quality certificate</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Krypton datasheet EN.pdf" target="_blank">Krypton datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Linde general terms and conditions of purchase EN.pdf" target="_blank">Linde general terms and conditions of purchase</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Linde general terms of procurement EN.pdf" target="_blank">Linde general terms of procurement</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Linde Green liquefied gases brochure EN.pdf" target="_blank">Linde Green liquefied gases brochure</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Linde material compliance declaration EN.pdf" target="_blank">Linde material compliance declaration</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Linde supplier code of conduct EN.pdf" target="_blank">Linde supplier code of conduct</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/LINDOFLAMM flame solutions brochure EN.pdf" target="_blank">LINDOFLAMM flame solutions brochure</a></td>
+      </tr>
+     
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/LINDOFLAMM thermal engineering brochure EN.pdf" target="_blank">LINDOFLAMM thermal engineering brochure</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/MAPAX packaging solutions brochure EN.pdf" target="_blank">MAPAX packaging solutions brochure</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Methane datasheet EN.pdf" target="_blank">Methane datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Natural refrigerants brochure EN.pdf" target="_blank">Natural refrigerants brochure</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Neon datasheet EN.pdf" target="_blank">Neon datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Nitric oxide datasheet EN.pdf" target="_blank">Nitric oxide datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Nitrogen datasheet EN.pdf" target="_blank">Nitrogen datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Nitrogen dioxide datasheet EN.pdf" target="_blank">Nitrogen dioxide datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Nitrogen services brochure EN.pdf" target="_blank">Nitrogen services brochure</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Nitrous oxide datasheet EN.pdf" target="_blank">Nitrous oxide datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Offshore%20300-70%20manifold%20rack%20datasheet%20EN.pdf" target="_blank">Offshore 300/70 manifold rack datasheet</a></td>
+      </tr> <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Offshore brochure EN.pdf" target="_blank">Offshore brochure</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Offshore cryotanks datasheet EN.pdf" target="_blank">Offshore cryotanks datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Offshore high pressure cryotanks datasheet EN.pdf" target="_blank">Offshore high pressure cryotanks datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Offshore transport and manifold racks datasheet EN.pdf" target="_blank">Offshore transport and manifold racks datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Oxygen datasheet EN.pdf" target="_blank">Oxygen datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/OZORA oxygen recovery unit datasheet EN.pdf" target="_blank">OZORA oxygen recovery unit datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/OZORA oxygen recovery unit white paper EN.pdf" target="_blank">OZORA oxygen recovery unit white paper</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Pharmaceuticals brochure EN.pdf" target="_blank">Pharmaceuticals brochure</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Propane datasheet EN.pdf" target="_blank">Propane datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/R1233zd refrigerant datasheet EN.pdf" target="_blank">R1233zd refrigerant datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/R1234YF Opteon YF refrigerants brochure EN.pdf" target="_blank">R1234YF Opteon YF refrigerants brochure</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/R1234yf refrigerants datasheet EN.pdf" target="_blank">R1234yf refrigerants datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/R32 refrigerant brochure EN.pdf" target="_blank">R32 refrigerant brochure</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/R407A refrigerants brochure EN.pdf" target="_blank">R407A refrigerants brochure</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/R407F refrigerants brochure EN.pdf" target="_blank">R407F refrigerants brochure</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/R427A refrigerants brochure EN.pdf" target="_blank">R427A refrigerants brochure</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td> 
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/R438A ISCEON MO99 refrigerants brochure EN.pdf" target="_blank">R438A ISCEON MO99 refrigerants brochure</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/R448A Soltice N40 refrigerants datasheet EN.pdf" target="_blank">R448A Soltice N40 refrigerants datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/R449A refrigerants brochure EN.pdf" target="_blank">R449A refrigerants brochure</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/R449A refrigerants datasheet EN.pdf" target="_blank">R449A refrigerants datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/R452A refrigerants brochure EN.pdf" target="_blank">R452A refrigerants brochure</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/R454C refrigerant EN.pdf" target="_blank">R454C refrigerant</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/R455A refrigerant datasheet EN.pdf" target="_blank">R455A refrigerant datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/R515B refrigerants datasheet EN.pdf" target="_blank">R515B refrigerants datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/R717 (Green ammonia) refrigerants datasheet EN.pdf" target="_blank">R717 (Green ammonia) refrigerants datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/R744 CO2 refrigerants datasheet EN.pdf" target="_blank">R744 CO2 refrigerants datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/REDLINE A28 manifold datasheet EN.pdf" target="_blank">REDLINE A28 manifold datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/REDLINE A29 manifold datasheet EN.pdf" target="_blank">REDLINE A29 manifold datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/REDLINE C200-1 regulator datasheet EN.pdf" target="_blank">REDLINE C200-1 regulator datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/REDLINE C200-2 regulator datasheet EN.pdf" target="_blank">REDLINE C200-2 regulator datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/REDLINE S20 manifold datasheet EN.pdf" target="_blank">REDLINE S20 manifold datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/REDLINE S21 manifold datasheet EN.pdf" target="_blank">REDLINE S21 manifold datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/REDLINE S23 manifold datasheet EN.pdf" target="_blank">REDLINE S23 manifold datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Refrigerants brochure EN.pdf" target="_blank">Refrigerants brochure</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Refrigerants F-gas regulations datasheet EN.pdf" target="_blank">Refrigerants F-gas regulations datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Refrigerants F-gas restrictions 2020 EN.pdf" target="_blank">Refrigerants F-gas restrictions 2020</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Refrigerants F-gases and alternatives brochure EN.pdf" target="_blank">Refrigerants F-gases and alternatives brochure</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Refrigerants leaflet EN.pdf" target="_blank">Refrigerants leaflet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Refrigerants product data summary EN.pdf" target="_blank">Refrigerants product data summary</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/REN_Industrial_Gas_Store/SECCURA-automatic-gas-supply-datasheet-EN.pdf" target="_blank">SECCURA automatic gas supply datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/SOLVOCARB customer reference Alter Farmacia EN.pdf" target="_blank">SOLVOCARB customer reference Alter Farmacia</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/SOLVOCARB customer reference BOSSA EN.pdf" target="_blank">SOLVOCARB customer reference BOSSA</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/SOLVOCARB customer reference Pilsner Urquell EN.pdf" target="_blank">SOLVOCARB customer reference Pilsner Urquell</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/SOLVOCARB product line datasheet EN.pdf" target="_blank">SOLVOCARB product line datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/SOLVOCARB technologies datasheet EN.pdf" target="_blank">SOLVOCARB technologies datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/SOLVOCARB venturi datasheet EN.pdf" target="_blank">SOLVOCARB venturi datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/SOLVOX B aquaculture dataheet EN.pdf" target="_blank">SOLVOX B aquaculture dataheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/SOLVOX customer reference Swan river EN.pdf" target="_blank">SOLVOX customer reference Swan river</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/SOLVOX diffusion hoses datasheet EN.pdf" target="_blank">SOLVOX diffusion hoses datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/SOLVOX expert article Plant capacity oxygen EN.pdf" target="_blank">SOLVOX expert article Plant capacity oxygen</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/NO/SOLVOX_in_control_produktblad_NO.pdf" target="_blank">SOLVOX expert article Treating wastewaster in food industry</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/SOLVOX_in_control_datasheet_EN.pdf" target="_blank">SOLVOX in control datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/SOLVOX inline injector datasheet EN.pdf" target="_blank">SOLVOX inline injector datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/SOLVOX mobile datasheet EN.pdf" target="_blank">SOLVOX mobile datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/NO/SOLVOX_oxycloud_produktblad_NO.pdf" target="_blank">SOLVOX oxycloud datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/NO/SOLVOX_OxyStream_produktblad_NO.pdf" target="_blank">SOLVOX OxyStream datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/SOLVOX reactor datasheet EN.pdf" target="_blank">SOLVOX reactor datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/NO/SOLVOX_Streamline_NO.pdf" target="_blank">SOLVOX Streamline</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/NO/SOLVOX_venturi_produktblad_NO.pdf" target="_blank">SOLVOX venturi datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Specialty gas mixtures datasheet EN.pdf" target="_blank">Specialty gas mixtures datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Specialty gases certificates datasheet EN.pdf" target="_blank">Specialty gases certificates datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Sulphur dioxide datasheet EN.pdf" target="_blank">Sulphur dioxide datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Sulphur hexaflouride datasheet EN.pdf" target="_blank">Sulphur hexaflouride datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Synthetic air datasheet EN.pdf" target="_blank">Synthetic air datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/VERISEQ Argon datasheet EN.pdf" target="_blank">VERISEQ Argon datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/VERISEQ Carbon dioxide datasheet EN.pdf" target="_blank">VERISEQ Carbon dioxide datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/VERISEQ Helium datasheet EN.pdf" target="_blank">VERISEQ Helium datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/VERISEQ Nitrogen datasheet EN.pdf" target="_blank">VERISEQ Nitrogen datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/VERISEQ Oxygen datasheet EN.pdf" target="_blank">VERISEQ Oxygen datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/VERISEQ Synthetic Air datasheet EN.pdf" target="_blank">VERISEQ Synthetic Air datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Water treatment brochure EN.pdf" target="_blank">Water treatment brochure</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/X21 Pro burner datasheet EN.pdf" target="_blank">X21 Pro burner datasheet</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/X21 Pro series overview EN.pdf" target="_blank">X21 Pro series overview</a></td>
+      </tr>
+      <tr id="row">
+        <td align="center"hidden></td>
+        <td><a href="https://static.prd.echannel.linde.com/wcsstore/SE_REN_Industrial_Gas_Store/pdf/EN/Xenon datasheet EN.pdf" target="_blank">Xenon datasheet</a></td>
+      </tr>
+
+      </tbody>
+    </table>
+
+
+  </div>
+</div>
+<!-- TableFilter JavaScript Library https://www.tablefilter.com/alphabetical-pager.html -->
+<script src="https://unpkg.com/tablefilter@0.7.2/dist/tablefilter/tablefilter.js">
+</script>
+<script src="https://unpkg.com/tablefilter@0.7.2/dist/tablefilter/tf-1-2aa33b10e0e549020c12.js">
+</script>
+<script>
+  // filter by first letter logic
+  function filter(evt) {
+    var elm = evt.target;
+    var query = elm.value.length > 0 ? tf.stOperator + elm.value : '';
+    // set the column's filter value
+    tf.setFilterValue(1, query);
+    // filter the table
+    tf.filter();
+    // clear previously marked element
+    if (tf.selectedLetter) {
+      tf.selectedLetter.classList.remove('btn-primary');
+    }
+    // mark selected letter
+    elm.classList.add('btn-primary');
+    // keep reference of selected element
+    tf.selectedLetter = elm;
+  }
+  var tf = new TableFilter(
+    document.querySelector('#pdf-codes'),
+    {
+      base_path: 'tablefilter/',
+      start_with_operator: '←',
+      paging: {
+        length: 25
+      },
+      rows_counter: {
+        text: 'File name: '
+      },
+      col_types: [
+        'string', 'string'
+      ],
+      on_filters_loaded: function (tf) {
+        tf.dom().rows[tf.getFiltersRowIndex()].style.display = 'none';
+      },
+      // sorting feature
+      extensions: [{
+        name: 'sort'
+      }]
+    }
+  );
+  document.addEventListener("DOMContentLoaded", function (event) {
+    tf.init();
+    // keep reference of selected letter element
+    tf.selectedLetter = null;
+  });
+</script>
